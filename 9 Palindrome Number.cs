@@ -8,12 +8,37 @@ public class Solution
         while (i < j)
         {
             if (num[i] != num[j])
-                break;
+                return false;
             i++;
             j--;
         }
-        if (num[i] == num[j])
+        return (num[i] == num[j]);
+    }
+}
+
+//another solution
+/*
+public class Solution {
+    public bool IsPalindrome(int x) {
+        string num = x.ToString();
+        string numReversed = ReverseString(num);
+            
+        if (num == numReversed)
             return true;
         return false;
     }
+    
+    public string ReverseString (string str)
+    {
+        string reversed = "";
+        int strLength = str.Length - 1;
+        
+        while (strLength >= 0)
+        {
+            reversed += str[strLength];
+            strLength--;
+        }
+        return reversed;
+    }
 }
+*/
