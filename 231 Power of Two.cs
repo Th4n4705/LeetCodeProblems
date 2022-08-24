@@ -2,6 +2,19 @@ public class Solution
 {
     public bool IsPowerOfTwo(int n)
     {
+        if (n == 1)
+            return true;
+        
+        
+        if (n % 2 != 0 || n == 0)
+            return false;
+        
+        return IsPowerOfTwo(n / 2);
+    }
+
+/*
+    public bool IsPowerOfTwo(int n)
+    {
         int i = 0;
         double pow;
         while (i <= n / 2)
@@ -43,4 +56,5 @@ public class Solution
         else
             return x * RecursivePowCalculator(x * x, (n - 1) / 2);
     }
+*/
 }
