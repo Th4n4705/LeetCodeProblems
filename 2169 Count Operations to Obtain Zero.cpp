@@ -1,5 +1,6 @@
-public class Solution {
-    public int CountOperations(int num1, int num2) {
+class Solution {
+public:
+    int countOperations(int num1, int num2) {
         
         int counter = 0;
         while  (num1 > 0 && num2 > 0)
@@ -18,4 +19,4 @@ public class Solution {
         
         return counter;
     }
-}
+};
