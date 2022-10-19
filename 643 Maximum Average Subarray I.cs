@@ -1,35 +1,33 @@
-public class Solution {
-    public double FindMaxAverage(int[] nums, int k) {
-        if (nums == null || nums.Length == 0)
-            return 0;
-        
-        double res = 0,
-               sum = 0;
-        int i = 0,
-            j = 0;
-        
-        while (j < k)
-            sum += (double)nums[j++];
-        
-        if (nums.Length <= k)
-            return sum / (double)k;
-        
-        res = sum / (double)k;
-        j--;
-        
-        do
+public class Solution
+{
+    public double FindMaxAverage(int[] nums, int k)
+    {
+        List<double> maxList = new List<double>();
+        double max = 0;
+
+        for (int i = 0; i < nums.Length; i++)
         {
-            sum -= (double)nums[i];
-            
-            i++;
-            j++;
-            
-            sum += (double)nums[j];
-            
-            res = Math.Max(sum / (double)k, res);
+            if (i + k > nums.Length)
+                break;
+            else if (i == 0)
+            {
+                for (int j = i; j < i + k; j++)
+                {
+                    if (j < nums.Length)
+                        max += (double)nums[j];
+                }
+            }
+            else
+                max = max - nums[i - 1] + nums[i + k - 1];
+            maxList.Add(max);
         }
-        while (j < nums.Length - 1);
-        
-        return res;
+
+        max = maxList[0];
+
+        for (int i = 0; i < maxList.Count; i++)
+            max = Math.Max(maxList[i], max);
+
+
+        return Convert.ToDouble(max / k);
     }
 }
