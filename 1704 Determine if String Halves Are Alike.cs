@@ -1,5 +1,26 @@
 public class Solution {
     public bool HalvesAreAlike(string s) {
+        HashSet<char> vowelHashSet = new(){'a','e','i','o','u','A','E','I','O','U'};
+        int counter = 0;
+        int i = 0;
+        int j = s.Length - 1;
+        while (i < j)
+        {
+            if (vowelHashSet.Contains(s[i]))
+                counter++;
+            if (vowelHashSet.Contains(s[j]))
+                counter--;
+            i++;
+            j--;
+        }
+        if (counter == 0)
+            return true;
+        return false;
+    }
+}
+
+/*public class Solution {
+    public bool HalvesAreAlike(string s) {
         string a;
         string b;
         SplitIt(s, out a, out b);
@@ -40,4 +61,4 @@ public class Solution {
                 }
         }
     }
-}
+}*/
