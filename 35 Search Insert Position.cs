@@ -1,4 +1,4 @@
-public class Solution {
+/*public class Solution {
     public int SearchInsert(int[] nums, int target)
     {
         for (int i = 0; i < nums.Length; i++)
@@ -11,5 +11,14 @@ public class Solution {
         if (nums[nums.Length - 1] < target)
             return nums.Length;
         return 1;
+    }
+}*/
+
+public class Solution {
+    public int SearchInsert(int[] nums, int target) {
+        for (int i = 0; i < nums.Length; i++)
+            if (nums[i] >= target)
+                return i;
+        return nums.Length;
     }
 }
